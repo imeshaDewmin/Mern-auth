@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 export default function Signup() {
   const [formData, setFormData] = useState({
@@ -9,6 +9,7 @@ export default function Signup() {
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const navigate=useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -36,7 +37,7 @@ export default function Signup() {
         throw new Error(data.message || 'Failed to sign up');
       }
 
-      console.log(data); // For debugging or handling response from the backend
+      navigate('/sign-in')
 
       
     } catch (error) {

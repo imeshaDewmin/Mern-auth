@@ -38,7 +38,7 @@ export default function Signup() {
         throw new Error(data.message || 'Failed to sign up');
       }
 
-      navigate('/sign-in')
+      navigate('/signin')
 
       
     } catch (error) {
